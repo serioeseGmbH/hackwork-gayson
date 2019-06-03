@@ -7,6 +7,8 @@ https://github.com/serioeseGmbH/hackwork-gayson
 hackwork_gayson is a library to help with persisting data to and reading data from the database (i.e. a JSONField)
 by defining JSON conversion for additional Python types.
 
+It's our lovely gay son.
+
 Quick start
 -----------
 
