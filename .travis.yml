@@ -1,7 +1,7 @@
 language: python
 dist: xenial
 python:
-  - "3.7"
+- '3.7'
 install: pip install django -e .
 script: python -m unittest gayson/tests.py
 deploy:
@@ -10,4 +10,4 @@ deploy:
   on:
     branch: master
   password:
-    secure: gzzvKduQDTismsPIUNRDKW+zuow8gMzbhlzrXw8LU2XG3VVuSZj9aD6ooo/njuoMx+hIe6NzT4INeLz12fIwSJE2Eyf59S8ov0H9JKxk+B7n9JUF2Ao05auklLdkIci5zC2VZ5z7pKoznh2/1/Bp8MsH7fJnh8kml7AmedF+UgaBDReeNouTHf4cJt8xduRDxi7pBD+CDvuJmjhhcVQWL+G70pYRvAAoaxhUsesiQxQAde7978eDj8otL8fLToyI+NO0Tfa+MCr/qNuxVi9DIrckIJAt0IDcHg/OZoVIaGOUfZIEza9qrN9WjEpb9GV09zDN9yGunpyFovT+5/ZtXBRZXFoC51TTpfNedLLszFm4ueoHiGkIRlr2PggVfNcUT4snpP6A4VDkNEwZd1BZ3D8Fp0IyzTJQgDVuVsp/RhbYwOqq5FzpiQwnvTJOCgX0fEUxosGbR6Zgj0zQErnfJDtlsYb3ndrNEcsHnnFDen/9LhURXVgpl8B2NrqGhMdsghRyadnMM/hIKZuapaOo+fxtQOcde6LB4SlWDMINiugBTrtS58X6NuvFdR5RaYq+nDoaG+mN0jze6kfg1ZHXpZQ7/Jq7KX5bsUJaWf/0acx2g8CxH9XLTaGDH0dXGFKGYLMmzPk6ybrYfM6Fu9pxwv21/fYlmaQg9H6/gRkvGeE=
+    secure: FSwoQR75L2e1IHQ59L8kiJVEqsB+vNUpmLoDszEtrOVdNzqnnYSmAfBGx+f14B7W/5EFIfjR3dO4Ac+8HBuT7dD52PgMabXOLF4jvhVgbb8eFE0MIM9GdzF+ztMLk9vo+iCNYsH88V2+FbqqDOh/hq5CmNTFKUgxrv7evpzT5P/+5gKI3rJ0uS1PGuQoANaiUjp7QiBPBYSYjTkGLYlFKMkPpM6rwSe77K1NKOndXEMd98+HOj0uFU9Y9MBG6ICoATex27+mjXSW+TIZ4xrNi0bCv3/0yZKgy6/veX2tHDfFS+kXWDiJjy90uZWqwZ9a4H/uaSxPA3t2r559fXUnsoOV8zmpiTK7QOnoejxy0lZ8VBceme+e7/vvVZTvyhaNqWOoZOllwpGjPxvFby/jZV1L6r2R+5bzGHxH5k3QHgzQR164Y/8XXhCANOJree1Dbl2ncOrckGizHR1W6JXO40WhrYj+xz7vRPwzQeqSCDLalrapw0TKe/2mIxNew2M+Btc5WW/n+qeO+smUOzRfrsMtkCv5//+ytBvbxl/7MN2N49c0g4dzSOzyMIHdGhgbrcLvYnzrTBeFkIJApAmeNYFR6jUUfoQMTErtXTwi+5YPm9dowxVCeG9bylesWh44Oxi2vAF924iSikjls31YxOaJx/WTCrfVMcMQfpIEV/4=
