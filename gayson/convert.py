@@ -6,6 +6,8 @@ from datetime import datetime, date, time, timedelta
 from typing import Any, Union, Dict, List
 from uuid import UUID
 
+import rapidjson
+
 
 class Convert(ABCMeta):
     __key_to_converter__ = {}
@@ -69,11 +71,19 @@ class Convert(ABCMeta):
             return value
 
     @classmethod
-    def loads_default(mcs, json: Union[Dict, List, str, int, float, bool]):
-        if isinstance(json, collections.Mapping):
+    def loads_object_hook(mcs, json: Union[Dict, List, str, int, float, bool]):
+        if isinstance(json, collections.Mapping) and '__type__' in json:
             return mcs.json_to_value(json)
         else:
             return json
+
+    @classmethod
+    def loads(mcs, json_string: str):
+        return rapidjson.loads(json_string, object_hook=mcs.loads_object_hook)
+
+    @classmethod
+    def dumps(mcs, json_dict: Dict):
+        return rapidjson.dumps(json_dict, default=mcs.dumps_default)
 
 
 class Converter(ABC, metaclass=Convert):

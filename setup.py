@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='hackwork_gayson',
-    version='0.0.2',
+    version='0.0.3',
     packages=find_packages(),
     include_package_data=True,
     license='MIT License',
@@ -19,7 +19,8 @@ setup(
     author='Simon Welker',
     author_email='simon@serioese.gmbh',
     install_requires=[
-        'pytz'
+        'pytz',
+        'python-rapidjson'
     ],
     classifiers=[
         'Environment :: Web Environment',
