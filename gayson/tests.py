@@ -17,6 +17,32 @@ class ConvertTest(TestCase):
                                                'value': now_as_json})
         self.assertEqual(now, now_from_json)
 
+    def test_loads_default_only_changes_nonconvertible_fields(self):
+        data = {
+            'xyz': 1,
+            'brot': "6000",
+            'uwe': True,
+            'somedate': {'__type__': 'date', 'value': '1960-01-01'}
+        }
+        data = {k: Convert.loads_default(v) for k, v in data.items()}
+        self.assertEqual(data['xyz'], 1)
+        self.assertEqual(data['brot'], "6000")
+        self.assertEqual(data['uwe'], True)
+        self.assertEqual(data['somedate'], date(1960, 1, 1))
+
+    def test_dumps_default_only_changes_nonconvertible_fields(self):
+        data = {
+            'xyz': 1,
+            'brot': "6000",
+            'uwe': True,
+            'somedate': date(1960, 1, 1)
+        }
+        data = {k: Convert.dumps_default(v) for k, v in data.items()}
+        self.assertEqual(data['xyz'], 1)
+        self.assertEqual(data['brot'], "6000")
+        self.assertEqual(data['uwe'], True)
+        self.assertEqual(data['somedate'], {'__type__': 'date', 'value': '1960-01-01'})
+
     def test_expected_type_keys_are_registered(self):
         for key in ['datetime', 'time', 'date', 'timedelta', 'uuid']:
             self.assertIn(key, Convert.__key_to_converter__)

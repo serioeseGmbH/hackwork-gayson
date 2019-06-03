@@ -59,15 +59,19 @@ class Convert(ABCMeta):
 
     @classmethod
     def dumps_default(mcs, value: Any):
-        if type(value) in mcs.__type_to_converter__:
-            return mcs.value_to_json(value)
+        type_ = type(value)
+        if type_ in mcs.__type_to_converter__:
+            return {
+                "__type__": mcs.__type_to_key__[type_],
+                "value": mcs.value_to_json(value)
+            }
         else:
             return value
 
     @classmethod
     def loads_default(mcs, json: Union[Dict, List, str, int, float, bool]):
         if isinstance(json, collections.Mapping):
-            return mcs.json_to_value(json['value'])
+            return mcs.json_to_value(json)
         else:
             return json
 
